@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+{% block title %}<title> 运维平台｜管理</title>{% endblock %}
+
+<link rel="stylesheet" href="{% static 'static/assets/bk/css/bk.css' %}">
+<link rel="stylesheet" href="{% static 'static/assets/bk/css/base/common.css' %}">
+<link rel="stylesheet" href="{% static 'static/assets/bk/css/components/button.css' %}">
+<link rel="stylesheet" href="{% static 'static/assets/fontawesome/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'static/assets/datatables-1.10.7/dataTables.bootstrap.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/manage.css' %}">
+
+{% block main %}
+
+<div class="manage-main" title="起始页" style="padding:0 10px;" data-options="closable:true">
+    <input id="project_name" type="hidden" value="{{data.project_name}}">
+    <input id="project_code" type="hidden" value="{{data.project_code}}">
+    <input id="project_id" type="hidden" value="{{data.project_id}}">
+    <div class="env-list">
+        <span class="title">环境类型：</span>
+        {% for e_env in data.envs %}
+            {% ifequal e_env.selected 1 %}
+                <button class="king-btn-demo king-btn  king-radius my-btn env-type" value="{{e_env.id}}">{{e_env.name}}</button>
+            {% else %}
+                <button class="king-btn-demo king-btn  king-radius king-success my-btn env-type" value="{{e_env.id}}">{{e_env.name}}</button>
+            {% endifequal %}
+        {% endfor %}
+        <!--<button class="king-btn-demo king-btn  king-radius my-btn env-type" title="DEV">DEV</button>-->
+        <!--<button class="king-btn-demo king-btn  king-radius king-success my-btn env-type" title="SIT">SIT</button>-->
+    </div>
+    <div class="app-list">
+        <span class="title">应用列表：</span>
+        {% for e_app in data.apps %}
+            <button class="king-btn-demo king-btn king-radius king-info my-btn app-name" value="{{e_app.id}}" >{{e_app.name}}</button>
+        {% endfor %}
+    </div>
+
+    <div class="detail-list" style="display:none;">
+        <table id="table2_demo4" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="table-head">IP</th>
+                    <th class="table-head">环境名称</th>
+                    <th class="table-head">项目经理</th>
+                    <th class="table-head" style="text-align:center;">操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+<script src="{% static 'static/assets/datatables-1.10.7/jquery.dataTables.js' %}"></script>
+<script src="{% static 'static/assets/datatables-1.10.7/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'js/manage.js' %}"></script>
+
+{% endblock %}

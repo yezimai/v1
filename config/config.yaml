@@ -1,0 +1,16 @@
+
+db:
+- name: default
+  ENGINE: django.db.backends.mysql
+  DB_NAME: cmdb
+  USER: root
+  PASSWORD: root
+  HOST: 127.0.0.1
+  PORT: 3306
+
+
+
+
+other:
+- name: parameters
+  txt_base_dir: D:/scripts/scrapy/laijie/sucai/txts

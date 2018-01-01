@@ -1,0 +1,29 @@
+.manage-main {
+    font-size: 14px;
+}
+.clear {
+    clear: both;
+}
+.my-btn {
+    margin: 0 15px 10px 5px !important;
+}
+.env-list {
+    margin: 20px 0 0 0px;
+}
+.env-list .title {
+    font-size: 14px;
+}
+.app-list {
+    margin: 10px 0 0 0;
+    border-bottom:#ccc 1px dashed;
+}
+.app-list .title{
+    font-size: 14px;
+}
+.detail-list {
+    margin: 10px 0 0 0;
+}
+.table-head{
+    font-size: 15px !important;
+    font-weight: bold !important;
+}

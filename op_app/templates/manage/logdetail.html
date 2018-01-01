@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>{{ data.title }}</title>
+    <style type="text/css">
+        body{
+            background:#eee;
+            border:none;
+        }
+        .textarea {
+            width:100%;
+            height:100%;
+            border:none;
+            background:#eee;
+            font-size:15px;
+            //cursor:text;
+            outline:none;
+        }
+    </style>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="logcontent" class="logcontent" >
+    <textarea class="textarea" readonly="readonly" >
+    {{ data.data }}
+
+    </textarea>
+
+
+
+</div>
+
+
+
+
+
+</body>
+<script src="{% static 'js/logdetail.js' %}"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.textarea').scrollTop(3000000);
+    });
+
+</script>
+
+
+</html>

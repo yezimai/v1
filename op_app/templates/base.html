@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!--<!DOCTYPE html>-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!--  logo    -->
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+
+    <!--    bootstrap  css  -->
+    <!--<link rel="stylesheet" href="{% static 'bootstrap/css/main.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'bootstrap/css/titatoggle-dist-min.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">-->
+    <link rel="stylesheet" href="{% static 'static/assets/bootstrap-3.3.4/css/bootstrap.min.css' %}">
+
+    <!--<link rel="stylesheet" href="{% static 'css/default.css' %} ">-->
+    <!--<script src="{% static 'js/jquery-2.2.0.min.js' %}"></script>-->
+
+    <!--   easyUI  css  -->
+    <link rel="stylesheet" href="{% static 'easyUI/themes/bootstrap/easyui.css' %}">
+    <link rel="stylesheet" href="{% static 'easyUI/themes/icon.css' %}">
+
+    <!--  jquery js/bootstrap js  -->
+    <!--<script src="{% static 'easyUI/jquery.min.js' %}"></script>-->
+    <script src="{% static 'static/assets/js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!--   easyUI js  -->
+    <script src="{% static 'easyUI/jquery.easyui.min.js' %}"></script>
+    <script src="{% static 'easyUI/locale/easyui-lang-zh_CN.js' %}"></script>
+
+    <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block title %}{% endblock %}
+
+    <style type="text/css">
+        .div-head {
+            background-color: #ddd;
+        }
+        .logo {
+           width:180px;
+           height:40px;
+           line-height:40px;
+           text-align:center;
+           font-size:20px;
+           font-weight:bold;
+           float:left;
+
+        }
+        .logout {
+            float:right;
+            padding:15px 35px 0 0;
+            //font-size:14px;
+        }
+        a {
+            color:#06f;
+            text-decoration:none;
+        }
+        a:hover {
+            text-decoration:underline;
+        }
+    </style>
+
+</head>
+<body>
+
+{% if user.is_authenticated  %}
+    <div id="cc" class="easyui-layout" data-options="fit:true">
+        <div class="div-head" data-options="noheader:'true', region:'north',title:'North Title',split:true" style="height:50px;">
+            <div class="logo">运维平台</div>
+            <div class="logout">你好！<a href="{% url 'op:password_change' %}?next=/change/" >{{ user.username }} </a> | <a href="{% url 'op:logout' %}?next=/blog/">退出</a>
+            </div>
+        </div>
+        <div data-options="noheader:'true', region:'south', split:true" style="height:10px;text-align:center">
+           <p><strong>by</strong> <a href="http://www.bqjr.cn">guanghua.fan</a> <strong>email</strong>:guanghua.fan@bqjr.cn</p>
+        </div>
+        <!--<div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;"></div>-->
+        <div data-options="region:'west',title:'导航菜单',split:true" style="width:280px;">
+            <ul id="nav"></ul>
+        </div>
+        <div data-options="noheader:'true',region:'center',title:'center title'" style="overflow:hidden;border:none;">
+            <div id="tabs">
+                {% block main %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block scripts %}{% endblock %}
+
+</body>
+
+</html>
+
+
+

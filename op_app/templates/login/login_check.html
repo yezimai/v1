@@ -1,0 +1,109 @@
+{% load staticfiles %}
+{% block title %}<title> BUTTON｜登录检测 </title>{% endblock %}
+{% block main %}
+
+<style type="text/css">
+    p{
+        font-size:13px;
+    }
+    .btns {
+        padding:15px 0 0 10px;
+    }
+//    .btns .username, .btns .password, .btns .mobletel{
+//        width:200px !important;
+//        height:200px !important;
+//        line-height:30px !important;
+//        text-indent:10px !important;
+//    }
+    .check-main {
+        padding:20px 0 0 10px;
+        max-height:420px;
+        position: relative;
+    }
+    .check-main .title p{
+        font-size:14px !important;
+        font-weight:bold;
+    }
+    .check-main .check-items {
+        padding:15px 0 0 30px;
+    }
+    .check-main .check-items .check-items-detail{
+        margin:35px 0 0 40px;
+    }
+    .check-main .result-result-ok{
+        color:green;
+    }
+    .check-main .result-result-error{
+        color:red;
+    }
+    .check-main .result-ok{
+        color:green;
+    }
+    .check-main .result-error{
+        color:red;
+    }
+    .tips {
+        display:none;
+        background-color: #eee;
+        position: relative;
+        top:20;
+        left:800;
+        width:400px;
+        height:200px;
+    }
+    .tips p{
+        //display:none;
+        color:#666
+    }
+</style>
+
+<div title="登录功能检测" style="padding:0 10px;" data-options="closable:true">
+    <input id="loadding-pic" type="hidden" value="{% static 'img/loadding2.gif' %}">
+    <input id="loadding-pic-ok" type="hidden" value="{% static 'img/right.png' %}">
+    <input id="pic-failed" type="hidden" value="{% static 'img/error.png' %}">
+    <div class="btns">
+        <input class="username" data-options="iconCls:'icon-login', prompt:'用户名'" value="803378">
+        <input class="password" data-options="iconCls:'icon-password', prompt:'密码', type:'password'" value="15919821602">
+        <!--<input class="mobletel" data-options="iconCls:'icon-mobletel', prompt:'手机号码'" >&nbsp;&nbsp;-->
+        <a id="check-btn" class="easyui-linkbutton check-btns" data-options="iconCls:'icon-check'" >开始检测</a>&nbsp;
+    </div>
+    <div class="check-main">
+        <div class="title">
+            <p>ID5登录&nbsp;&nbsp;<img src="{% static 'img/loadding2.gif' %}" style="display:none;"></p>
+        </div>
+        <div class="check-items">
+
+
+
+<!--<p style="text-align: left;">-->
+    <!--<span style="background-color: rgb(219, 238, 243);font-size:18px"><strong>ID5</strong> 登录检测</span>-->
+<!--</p>-->
+<!--<p style="text-align: left;">-->
+    <!--<span style="background-color: rgb(219, 238, 243);font-size:18px">此检测主要是检测到能否正常登录到ID5页面</span>-->
+<!--</p>-->
+<!--<p style="text-align: left;">-->
+    <!--<span style="background-color: rgb(219, 238, 243);font-size:18px">后端采取Python 模拟用户登录的方法登录。</span>-->
+<!--</p>-->
+            <!--<div class="check-items-url">-->
+                <!--<p>http://192.168.1.100:8080/LoginSYS/<a href="#" target="_blank" >打开链接</a><img src="#" style="display:none;"></p>-->
+            <!--</div>-->
+            <!--<div class="check-items-detail">-->
+                <!--<input class="id" type="hidden" value="1">-->
+                <!--<span class="login-address">登录地址：<a href="http://192.168.1.100:8080/LoginSYS/">http://192.168.1.100:8080/LoginSYS/</a></span>&nbsp;&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--<span class="result-item">登录结果：登录正常<img class="result-img" style="display:none;"></span>&nbsp;&nbsp;&nbsp;&nbsp;->&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--<span class="result-info">返回信息：OK</span>-->
+            <!--</div>-->
+
+
+
+        </div>
+    </div>
+    <div class="tips" >
+        <p>1.检查应用是否正常启动，进程是否异常。</p>
+        <!--<p>2.。</p>-->
+        <!--<p>3.</p>-->
+    </div>
+</div>
+
+{% endblock %}
+<script src="{% static 'js/login_check.js' %}"></script>
